@@ -1,0 +1,29 @@
+---
+
+- name: Test distribution
+  assert:
+    that: ansible_os_family == "RedHat"
+
+- name: Install rpm-build package
+  package:
+    name: "{{ rpmbuild_pkg }}"
+  tags:
+    - rpmbuild_pkg
+
+- name: Create the RPM macros file
+  template:
+    src: rpmmacros.j2
+    dest: "{{ rpmbuild_user_home }}/.rpmmacros"
+  tags:
+    - rpmbuild_config
+    - rpmbuild_macros
+
+- name: Create directory structure
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ rpmbuild_user_name }}"
+  with_items: "{{ rpmbuild_dirs }}"
+  tags:
+    - rpmbuild_config
+    - rpmbuild_dir
