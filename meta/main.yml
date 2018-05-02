@@ -2,16 +2,14 @@
 
 galaxy_info:
   author: Jiri Tyr
-  description: Ansible role creates RPM build environment
+  description: Ansible role which creates RPM build environment
   license: MIT
   min_ansible_version: 1.9
   platforms:
     - name: EL
       versions:
         - all
-    - name: Fedora
-      versions:
-        - all
   galaxy_tags: []
 dependencies:
-  - jtyr.config_encoder_filters
+  # see https://github.com/jtyr/ansible-config_encoder_filters#installation
+  - config_encoder_filters
