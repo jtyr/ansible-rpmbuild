@@ -1,0 +1,14 @@
+---
+
+galaxy_info:
+  author: Jiri Tyr
+  description: Ansible role which creates RPM build environment.
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - system
+dependencies: []
